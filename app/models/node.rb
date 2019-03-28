@@ -1,3 +1,3 @@
 class Node < ApplicationRecord
-  belongs_to :nodes
+  belongs_to :edge
 end

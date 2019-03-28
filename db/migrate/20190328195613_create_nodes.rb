@@ -3,7 +3,7 @@ class CreateNodes < ActiveRecord::Migration[5.2]
     create_table :nodes do |t|
       t.string :name
       t.text :body
-      t.references :nodes, foreign_key: true
+      t.references :edge, foreign_key: true
 
       t.timestamps
     end

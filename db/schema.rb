@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_27_210917) do
+ActiveRecord::Schema.define(version: 2019_03_28_195613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,14 +29,20 @@ ActiveRecord::Schema.define(version: 2019_03_27_210917) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
+  create_table "edges", force: :cascade do |t|
+    t.integer "node"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "nodes", force: :cascade do |t|
     t.string "name"
     t.text "body"
-    t.bigint "nodes_id"
+    t.bigint "edge_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["nodes_id"], name: "index_nodes_on_nodes_id"
+    t.index ["edge_id"], name: "index_nodes_on_edge_id"
   end
 
-  add_foreign_key "nodes", "nodes", column: "nodes_id"
+  add_foreign_key "nodes", "edges"
 end

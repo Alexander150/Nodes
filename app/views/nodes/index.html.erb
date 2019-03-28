@@ -6,7 +6,9 @@
 </head>
 <body>
 	<div class="main_body">
-		sdfghj
+		<% @node.each do |n| %>
+			<%= n.body.html_safe %>
+		<% end %>
 	</div>
 </body>
 </html>
