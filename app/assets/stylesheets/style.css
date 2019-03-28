@@ -1,27 +1,8 @@
 body{
-	background-color: grey;
+	background-color: #00abff;
+	font-size: 4vw;
+}
+.main_body{
+	color: white;
 	text-align: center;
-	display: -webkit-flex; 
-	-webkit-justify-content: flex-start;
-	display: flex;
-	justify-content: center;
-
-	font-size: 3vw;
-}
-.header{
-	background-color: white;
-	width: 90%;
-	height: auto;
-}
-.main{
-	margin-top: 5%;
-	background-color: white;
-	width: 90%;
-	height: auto;
-}
-.footer{
-	margin-top: 5%;
-	background-color: white;
-	width: 90%;
-	height: auto;
 }
