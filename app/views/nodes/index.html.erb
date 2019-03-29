@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<%= stylesheet_link_tag "style", media: 'all', 'data-turbolinks-track' => true %>
-	<title>Nodes</title>
-</head>
-<body>
-	<div class="main_body">
-		<% @node.each do |n| %>
-			<%= n.body.html_safe %>
-		<% end %>
-	</div>
-</body>
-</html>
+<% if 1==2%>
+<div class="main_body">
+	<% @node.each do |n| %>
+		<%= @html %>
+	<% end %>
+</div>
+<% end %>
+
+
+<% @nodes.each do |n| %>
+	<a href="/nodes/<%= n.id%>"><%= n.id %></a>
+<% end %>
+

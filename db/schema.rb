@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_28_195613) do
+ActiveRecord::Schema.define(version: 2019_03_29_144329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 2019_03_28_195613) do
 
   create_table "edges", force: :cascade do |t|
     t.integer "node"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "node_id"
+    t.integer "target_node_id"
+    t.string "name"
+  end
+
+  create_table "metrics", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
