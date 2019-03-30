@@ -1,12 +1,3 @@
-<% if 1==2%>
-<div class="main_body">
-	<% @node.each do |n| %>
-		<%= @html %>
-	<% end %>
-</div>
-<% end %>
-
-
 <% @nodes.each do |n| %>
 	<a href="/nodes/<%= n.id%>"><%= n.id %></a>
 <% end %>
