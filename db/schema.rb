@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_30_142548) do
+ActiveRecord::Schema.define(version: 2019_03_30_175031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,13 +37,14 @@ ActiveRecord::Schema.define(version: 2019_03_30_142548) do
     t.integer "target_node_id"
     t.string "name"
     t.integer "metric_id"
+    t.integer "count"
   end
 
   create_table "metrics", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "type"
+    t.boolean "metric_type"
   end
 
   create_table "nodes", force: :cascade do |t|
@@ -52,6 +53,7 @@ ActiveRecord::Schema.define(version: 2019_03_30_142548) do
     t.bigint "edge_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "count"
     t.index ["edge_id"], name: "index_nodes_on_edge_id"
   end
 
