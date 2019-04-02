@@ -3,7 +3,9 @@ ActiveAdmin.register Node do
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
 permit_params :name, :body, :edge_ids, :count, edges_attributes: [
-	#параметры edge
+	:name, :node_id, :target_node_id, :act_id, metrics_attributes: [
+		:name
+	]
 ]
 
 index do

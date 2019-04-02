@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  action_type: false
+  act_type: false
 
 two:
   name: MyString
-  action_type: false
+  act_type: false

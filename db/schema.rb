@@ -10,17 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_02_152025) do
+ActiveRecord::Schema.define(version: 2019_04_02_201022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "actions", force: :cascade do |t|
-    t.string "name"
-    t.boolean "action_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -36,6 +29,13 @@ ActiveRecord::Schema.define(version: 2019_04_02_152025) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
+  create_table "acts", force: :cascade do |t|
+    t.string "name"
+    t.boolean "act_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "edges", force: :cascade do |t|
     t.integer "node"
     t.datetime "created_at", null: false
@@ -44,14 +44,14 @@ ActiveRecord::Schema.define(version: 2019_04_02_152025) do
     t.integer "target_node_id"
     t.string "name"
     t.integer "metric_id"
-    t.integer "count"
+    t.integer "act_id"
   end
 
   create_table "metrics", force: :cascade do |t|
-    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "metric_type"
+    t.string "name"
+    t.integer "count"
   end
 
   create_table "nodes", force: :cascade do |t|

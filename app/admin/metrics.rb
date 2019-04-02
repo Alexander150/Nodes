@@ -2,7 +2,7 @@ ActiveAdmin.register Metric do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :name, :metric_type
+permit_params :money, :hp
 
 # form do |f|
 # 	f.inputs do
