@@ -2,7 +2,9 @@ ActiveAdmin.register Node do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :name, :body, :edge_ids, :count
+permit_params :name, :body, :edge_ids, :count, edges_attributes: [
+	#параметры edge
+]
 
 index do
 	column :id
@@ -20,6 +22,9 @@ form do |f|
 		f.input :body, label: "Код страницы: "
 		# f.input :edge_id, label: "Какие ссылки содержит: ", as: :select, multiple: true, collection: Edge.all.map{|x| [x.name, x.id]}
 		f.input :count, label: "Общая сумма в этом ходу: " 
+	end
+	f.has_many :edges do |e|
+		e.inputs
 	end
 	f.actions
 end

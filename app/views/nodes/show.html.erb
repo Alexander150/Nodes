@@ -1,4 +1,4 @@
 <p><%= @node.body.html_safe %> <%= @current_count %></p>
 <% @node.edges.each do |e|%>
-	<a href="/nodes/<%= e.target_node_id %>"><button class="btn"><%= e.metric.name %> <%= e.count %></button></a>
+	<a href="/nodes/<%= e.target_node_id %>"><button class="btn"><%= e.metric_id %> <%= e.count %></button></a>
 <% end %>

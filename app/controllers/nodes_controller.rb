@@ -10,17 +10,12 @@ class NodesController < ApplicationController
   	edges.each do |e|
   		next_node_id = e.target_node_id
   		next_node = Node.find_by id: next_node_id
-		if e.metric.metric_type == true
+		if e.metric_id == 2
 			next_node.update(:count => @node.count + e.count)
 		else
 			next_node.update(:count => @node.count - e.count)
 		end
 	 	@current_count = @node.count
-  	end
-  	# for i in edge
-  	# 	@next_node_id = i.target_node
-  	# 	# @next_node_id = Node.where(id: i.target_node.id).ids 
-  	# end
-	
+  	end	
   end
 end
