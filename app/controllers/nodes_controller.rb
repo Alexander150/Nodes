@@ -11,10 +11,16 @@ class NodesController < ApplicationController
   		next_node_id = e.target_node_id
   		next_node = Node.find_by id: next_node_id
 		if e.act.act_type == true
-			next_node.update(:count => @node.count + e.metrics.count)
-		else
-			next_node.update(:count => @node.count - e.metrics.count)
-		end
+      metrics = e.metrics
+      metrics.each do |m|
+			  next_node.update(:count => @node.count + e.metrics.count)
+		  end
+    else
+      metrics = e.metrics
+      metrics.each do |m|
+        next_node.update(:count => @node.count - e.metrics.count)
+      end		
+    end
 	 	@current_count = @node.count
   	end	
   end
